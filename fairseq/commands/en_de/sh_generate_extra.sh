@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 cd ../../
-DATASET=wmt14_en_de_base_untied_rd02rm
+DATASET=wmt14_en_de_base
 DATA=data-bin/$DATASET
-CP_PATH=/apdcephfs/share_916081/joelwxjiao/checkpoints/$DATASET
+CP_PATH=./checkpoints/$DATASET
 CP=checkpoint_best.pt
 
 CHECKPOINT=$CP_PATH/$CP
