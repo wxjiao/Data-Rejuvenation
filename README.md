@@ -28,7 +28,12 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
    These four folders are used as below:
    - `fairseq/dataset/`: Save raw dataset with BPE.
      ```
-     train.en    train.de     valid.en    valid.de    test.en     test.de
+     wmt14_en_de_base/train.en
+     wmt14_en_de_base/train.de
+     wmt14_en_de_base/valid.en
+     wmt14_en_de_base/valid.de
+     wmt14_en_de_base/test.en
+     wmt14_en_de_base/test.de
      ```
    - `fairseq/data-bin/`: Save the binarized data after pre-processing.
    - `fairseq/checkpoints/`: Save the checkpoints of models during training.
