@@ -503,7 +503,7 @@ class Trainer(object):
 
     def valid_step(self, sample, raise_oom=False):
         """Do forward pass in evaluation mode."""
-        # By wxjiao
+        # By xxx: not to eval bleu
         BLEU_EVAL = not self.args.no_bleu_eval
         if self._dummy_batch is None:
             self._dummy_batch = sample
@@ -512,12 +512,12 @@ class Trainer(object):
             self.model.eval()
             self.criterion.eval()
 
-            # By wxjiao: validate with float for DynamicConv
+            # By xxx: validate with float for DynamicConv
             if self.args.float_valid and self.args.fp16:
               self.model.float()
               self.criterion.float()
 
-            sample = self._prepare_sample(sample, force_float=self.args.float_valid) # By wxjiao
+            sample = self._prepare_sample(sample, force_float=self.args.float_valid) # By xxx
             if sample is None:
                 sample = self._prepare_sample(self._dummy_batch)
                 ignore_results = True
@@ -528,7 +528,7 @@ class Trainer(object):
                 _loss, sample_size, logging_output = self.task.valid_step(
                     sample, self.model, self.criterion
                 )
-                # By wxjiao: control whether to generate
+                # By xxx: control whether to generate
                 src_target_hypo_str = []
                 if BLEU_EVAL:
                     src_target_hypo_str = self._get_decoding(sample)
@@ -586,7 +586,7 @@ class Trainer(object):
 
         logging_output['src_target_hypo_str'] = src_target_hypo_str
 
-        # By wxjiao: return to fp16 for training
+        # By xxx: return to fp16 for training
         if self.args.float_valid and self.args.fp16:
           self.model.half()
           self.criterion.half()
@@ -650,7 +650,7 @@ class Trainer(object):
         self._num_updates = num_updates
         self.lr_step_update()
 
-    def _prepare_sample(self, sample, force_float=False):    # By wxjiao: force_float
+    def _prepare_sample(self, sample, force_float=False):    # By xxx: force_float
         if sample is None or len(sample) == 0:
             return None
 
