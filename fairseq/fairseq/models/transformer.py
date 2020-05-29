@@ -161,7 +161,7 @@ class TransformerModel(FairseqEncoderDecoderModel):
                             help='add layernorm to embedding')
         parser.add_argument('--no-scale-embedding', action='store_true',
                             help='if True, dont scale embeddings')
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         parser.add_argument('--encoder-lstm-san', action='store_true', default=False)
         parser.add_argument('--decoder-lstm-san', action='store_true', default=False)
         # fmt: on
@@ -502,7 +502,7 @@ class TransformerDecoder(FairseqIncrementalDecoder):
         super().__init__(dictionary)
         self.register_buffer('version', torch.Tensor([3]))
         
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         self.decoder_lstm_san = args.decoder_lstm_san
 
         self.dropout = args.dropout
@@ -588,7 +588,7 @@ class TransformerDecoder(FairseqIncrementalDecoder):
                 - the decoder's output of shape `(batch, tgt_len, vocab)`
                 - a dictionary with any model-specific outputs
         """
-        # By wxjiao: add LSTM layers;
+        # By xxx: add LSTM layers;
         # Set incremental_state=None when inference with LSTM layers in decoder.
         if self.decoder_lstm_san:
             incremental_state = None
