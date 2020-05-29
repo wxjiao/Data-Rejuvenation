@@ -68,7 +68,7 @@ class LabelSmoothedCrossEntropyCriterion(FairseqCriterion):
 
     def compute_loss(self, model, net_output, sample, reduce=True):
         lprobs = model.get_normalized_probs(net_output, log_probs=True)
-        # By wxjiao: take sentence lprob when eval
+        # By xxx: take sentence lprob when eval
         origin_target = model.get_targets(sample, net_output)
         sample_status = None
         if not model.training:
