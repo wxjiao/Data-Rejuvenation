@@ -4,10 +4,9 @@ if [ $? != 0 ]; then
   pip install --editable ../../
 fi 
 
-DATA=wmt14_en_de_base_untied_probRepLev10_Finetune
+DATA=wmt14_en_de_base
 cd ../../
-#DISK=/apdcephfs/private_joelwxjiao/checkpoints
-DISK=/apdcephfs/share_916081/joelwxjiao/checkpoints
+DISK=./checkpoints
 CHECKPOINT_DIR=$DISK/$DATA
 EVAL_OUTPUT_PATH=./results/$DATA/evaluation/
 
@@ -50,7 +49,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py data-bin/$DATA \
   --save-interval-updates 2000 \
   --keep-interval-updates 1 \
   --keep-last-epochs 1 \
-  --max-update 200000 \
+  --max-update 100000 \
   --max-epoch 100 \
   --beam 1 \
   --remove-bpe \
@@ -60,8 +59,3 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py data-bin/$DATA \
   --valid-decoding-path $EVAL_OUTPUT_PATH \
   --multi-bleu-path ./scripts/ \
   |& tee ./results/$DATA/logs/train.log
- #--share-decoder-input-output-embed \ 
- # --save-interval 1 \
- # --keep-interval-updates 5 \
- # --keep-last-epochs 5 \
-  
