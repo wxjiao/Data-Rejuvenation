@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 cd ../../
-DATASET=wmt14_en_fr_transfer_BigBig
+DATASET=wmt14_en_fr_base_active
 DATA=data-bin/$DATASET
-CP_PATH=/apdcephfs/share_916081/joelwxjiao/checkpoints/$DATASET
+CP_PATH=./checkpoints/$DATASET
 CP=checkpoint_best.pt
 
 CHECKPOINT=$CP_PATH/$CP
 mkdir ./results/$DATASET
-VALID_DECODE_PATH=./results/$DATASET/valid1
+VALID_DECODE_PATH=./results/$DATASET/inactive
 mkdir $VALID_DECODE_PATH
 
 SUBSET=valid
 echo "Evaluate on $DATA with $CHECKPOINT"
 CUDA_VISIBLE_DEVICES=0 python generate.py \
-  data-bin/$DATASET/valid1 \
+  data-bin/$DATASET/inactive \
   --fp16 \
   -s en \
   -t fr \
@@ -28,5 +28,5 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
   --valid-decoding-path $VALID_DECODE_PATH \
   > $VALID_DECODE_PATH/$CP.gen
 
-sh ./scripts/compound_split_bleu.sh $VALID_DECODE_PATH/$CP.gen
+#sh ./scripts/compound_split_bleu.sh $VALID_DECODE_PATH/$CP.gen
 
