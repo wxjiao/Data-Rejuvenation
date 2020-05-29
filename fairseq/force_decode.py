@@ -116,14 +116,14 @@ def validate(args, trainer, task, epoch_itr, subsets):
                 meter.reset()
         extra_meters = collections.defaultdict(lambda: AverageMeter())
 
-        # By wxjiao: save sample_status
+        # By xxx: save sample_status
         all_sample_status = []
         num_updates = trainer.get_num_updates()
         sample_status_dir = os.path.join(args.results_path, 'sample_status/')
         os.makedirs(sample_status_dir, exist_ok=True)
         sample_status_file_batch = open(sample_status_dir+'status_{}_{}.txt'.format(subset, num_updates), 'w')
 
-        # By wxjiao: write function
+        # By xxx: write function
         def write_stauts_batch(sample_status_file, sample_status_list):
             if sample_status_list == None:
                 return
@@ -132,7 +132,7 @@ def validate(args, trainer, task, epoch_itr, subsets):
                     continue
                 #import ipdb; ipdb.set_trace()
                 for item in batch_list:
-                    # By wxjiao
+                    # By xxx
                     match_list = item[1] if type(item[1]) is list else [item[1]]
                     sent_lp_acc = str(item[0]) + '|||' + ' '.join(map(str, match_list))
                     if len(item) > 2:
@@ -141,7 +141,7 @@ def validate(args, trainer, task, epoch_itr, subsets):
                     sent_lp_acc = sent_lp_acc + '\n'
                     sample_status_file.write(sent_lp_acc)
 
-        # By wxjiao: count time
+        # By xxx: count time
         import time
         t0 = time.time()
         print('| Start evaluating on {} dataset with {} batchs'.format(subset, len(itr)))
@@ -153,7 +153,7 @@ def validate(args, trainer, task, epoch_itr, subsets):
 
             log_output = trainer.valid_step(sample)
 
-            # By wxjiao: get sample_status
+            # By xxx: get sample_status
             sample_status = log_output.get('sample_status', None)
             write_stauts_batch(sample_status_file_batch, sample_status)
 
