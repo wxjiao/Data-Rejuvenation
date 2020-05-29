@@ -78,7 +78,6 @@ print("A test example: idx {}; p {}".format(test_idx, p_sent_mean[test_idx]))
 
 
 
-
 # Sort by sentence probability
 print("\nSorting sentence pairs by sentence probability ...")
 
