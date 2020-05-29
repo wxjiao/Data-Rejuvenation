@@ -28,7 +28,7 @@ class TransformerEncoderLayer(nn.Module):
     def __init__(self, args):
         super().__init__()
         self.embed_dim = args.encoder_embed_dim
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         self.lstm_san = args.encoder_lstm_san
         if self.lstm_san:
             self.self_attn = nn.LSTM(input_size=self.embed_dim,
@@ -106,7 +106,7 @@ class TransformerEncoderLayer(nn.Module):
         # TODO: to formally solve this problem, we need to change fairseq's
         # MultiheadAttention. We will do this later on.
         
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         if self.lstm_san:
             x, _ = self.self_attn(x)
             x = self.lstm_activation_fn(self.lstm_fc(x))
@@ -156,7 +156,7 @@ class TransformerDecoderLayer(nn.Module):
         super().__init__()
         self.embed_dim = args.decoder_embed_dim
         self.cross_self_attention = getattr(args, 'cross_self_attention', False)
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         self.lstm_san = args.decoder_lstm_san
         if self.lstm_san:
             self.self_attn = nn.LSTM(input_size=self.embed_dim,
@@ -264,7 +264,7 @@ class TransformerDecoderLayer(nn.Module):
         else:
             y = x
 
-        # By wxjiao: add LSTM layers
+        # By xxx: add LSTM layers
         if self.lstm_san:
             x, _ = self.self_attn(x)
         else:
