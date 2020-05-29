@@ -27,19 +27,19 @@ mkdir results
 ```
 
 2. Train an identification NMT model and obtain the token-wise prediction probability.
-  - Train the NMT model on full training data of WMT14 En-De:
+   - Train the NMT model on full training data of WMT14 En-De:
     ```
     sh sh_train.sh
     ```
-  - Check the best model:
+   - Check the best model:
     ```
     fairseq/checkpoints/wmt14_en_de_base/checkpoint_best.pt
     ```
-  - Force-decode the full training data: 
+   - Force-decode the full training data: 
     ```
     sh sh_forcedecode.sh
     ```
-  - Check the token-wise probability:
+   - Check the token-wise probability:
     ```
     fairseq/results/wmt14_en_de_base/sample_status/status_train_[BestStep].txt
     ```
