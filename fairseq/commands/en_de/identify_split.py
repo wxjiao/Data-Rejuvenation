@@ -30,8 +30,8 @@ def read_status(filename, pred_prob, pred_acc):
 
     return pred_prob, pred_acc
 
-data = "/wmt14_en_de_deep_untied_fp16"
-filename = "../../results" + data + "/sample_status_tok/status_train_49519.txt"
+data = "/wmt14_en_de_base"
+filename = "../../results" + data + "/sample_status/status_train_[BestStep].txt"
 pred_prob, pred_acc = dict(), dict()
 if os.path.isfile(filename):
     print(filename)
@@ -93,7 +93,7 @@ sorted_p_sent_mean = p_sent_mean[sorted_idx]
 # Record order of examples
 print("\nWriting the order of sentence pairs ...")
 
-sample_order_path = "../../results" + data + "/sample_status_tok"  + "/sample_order_prob_49519.txt"
+sample_order_path = "../../results" + data + "/sample_status"  + "/sample_order_prob_[BestStep].txt"
 with open(sample_order_path, 'w') as file:
     for od in sorted_ids:
         file.write(str(od)+'\n')
@@ -110,7 +110,7 @@ ax31.set_xlabel('Training Examples (%)')
 ax31.set_xticks(range(0,110,10))
 ax31.set_yticks([0.0, 0.5, 1.0])
 ax31.set_ylabel('Prediction Confidence')
-fig_path = "../../results" + data + "/sample_status_tok" + "/sentence-prob.png"
+fig_path = "../../results" + data + "/sample_status" + "/sentence-prob.png"
 fig3.savefig(fig_path, dpi=300)
 
 
@@ -148,7 +148,7 @@ active_ids = sorted_ids[num_rm:]
 print(len(inactive_ids), inactive_ids[:10])
 print(len(active_ids), active_ids[:10])
 
-split_data = "/wmt14_en_de_deep_untied_identified"
+split_data = "/wmt14_en_de_base_identified"
 split_path = "../../dataset" + split_data
 if not os.path.isdir(split_path):
       os.mkdir(split_path)
