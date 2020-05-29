@@ -123,7 +123,7 @@ def load_checkpoint(args, trainer, **passthrough_args):
     ):
         save_checkpoint.best = extra_state["best"]
 
-    # By wxjiao: not load trainer data
+    # By xxx: not load trainer data
     if args.no_load_trainer_data:
         return None, None
     
