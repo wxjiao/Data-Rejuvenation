@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-DATA=wmt14_en_fr_lstm_untied_fp16
+DATA=wmt14_en_fr_lstm
 cd ../../
-DISK=/apdcephfs/share_916081/joelwxjiao/checkpoints
+DISK=./checkpoints
 CHECKPOINT_DIR=$DISK/$DATA
 EVAL_OUTPUT_PATH=./results/$DATA/evaluation/
 CHECKPOINT=checkpoint_best.pt
@@ -46,7 +46,3 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python force_decode.py data-bin/$DATA \
   --valid-decoding-path $EVAL_OUTPUT_PATH \
   --multi-bleu-path ./scripts/ \
  # |& tee ./results/$DATA/logs/train.log
- #--share-decoder-input-output-embed \ 
- # --save-interval 1 \
- # --keep-interval-updates 5 \
- # --keep-last-epochs 5 \
