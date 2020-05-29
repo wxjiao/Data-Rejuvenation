@@ -4,10 +4,9 @@ if [ $? != 0 ]; then
   pip install --editable ../../
 fi 
 
-DATA=wmt14_en_fr_transfer_LightLight
+DATA=wmt14_en_fr_lightconv
 cd ../../
-#DISK=/apdcephfs/private_joelwxjiao/checkpoints
-DISK=/apdcephfs/share_916081/joelwxjiao/checkpoints
+DISK=./checkpoints
 CHECKPOINT_DIR=$DISK/$DATA
 EVAL_OUTPUT_PATH=./results/$DATA/evaluation/
 
@@ -62,5 +61,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py data-bin/$DATA \
   --multi-bleu-path ./scripts/ \
   --share-all-embeddings \
   |& tee ./results/$DATA/logs/train.log
- #--share-decoder-input-output-embed \ 
   
