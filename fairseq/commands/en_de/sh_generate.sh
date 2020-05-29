@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 cd ../../
-DATASET=wmt14_en_de_transfer_BaseBaseBase_trusted
+DATASET=wmt14_en_de_base
 DATA=data-bin/$DATASET
-CP_PATH=/apdcephfs/share_916081/joelwxjiao/checkpoints/$DATASET
+CP_PATH=./checkpoints/$DATASET
 CP=checkpoint_best.pt
 
-#CHECKPOINT=/apdcephfs/share_916081/joelwxjiao/checkpoints/wmt14_en_de_base_untied_trusted/$CP 
 CHECKPOINT=$CP_PATH/$CP
 mkdir ./results/$DATASET
 VALID_DECODE_PATH=./results/$DATASET/valid
@@ -13,7 +12,7 @@ mkdir $VALID_DECODE_PATH
 
 SUBSET=valid
 echo "Evaluate on $DATA with $CHECKPOINT"
-CUDA_VISIBLE_DEVICES=7 python generate.py \
+CUDA_VISIBLE_DEVICES=0 python generate.py \
   data-bin/$DATASET \
   --fp16 \
   -s en \
