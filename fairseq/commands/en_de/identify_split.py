@@ -8,6 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams['figure.dpi']= 300
 
+
+
+# Read token probability
+print("\nReading in token probability ...")
+
 def read_status(filename, pred_prob, pred_acc):
     with open(filename, 'r') as f:
         for line in tqdm(f):
@@ -25,9 +30,6 @@ def read_status(filename, pred_prob, pred_acc):
 
     return pred_prob, pred_acc
 
-
-# Read token probability
-print("\nReading in token probability ...")
 data = "/wmt14_en_de_deep_untied_fp16"
 filename = "../../results" + data + "/sample_status_tok/status_train_49519.txt"
 pred_prob, pred_acc = dict(), dict()
@@ -39,8 +41,10 @@ else:
     exit()
 
 
+
 # Compute sentence probability
 print("\nComputing sentence probability ...")
+
 ids = []
 p_sent_mean = []
 p_sent_std = []
@@ -72,8 +76,12 @@ test_idx = 10
 data_id = ids[test_idx]
 print("A test example: idx {}; p {}".format(test_idx, p_sent_mean[test_idx]))
 
+
+
+
 # Sort by sentence probability
 print("\nSorting sentence pairs by sentence probability ...")
+
 p_sent_mean = np.array(p_sent_mean)
 ids = np.array(ids)
 
@@ -81,15 +89,21 @@ sorted_idx = np.argsort(p_sent_mean)
 sorted_ids = ids[sorted_idx]
 sorted_p_sent_mean = p_sent_mean[sorted_idx]
 
+
+
 # Record order of examples
 print("\nWriting the order of sentence pairs ...")
+
 sample_order_path = "../../results" + data + "/sample_status_tok"  + "/sample_order_prob_49519.txt"
 with open(sample_order_path, 'w') as file:
     for od in sorted_ids:
         file.write(str(od)+'\n')
-
+        
+        
+        
 # Plot the sorted sentence probability
 print("\nPlotting and saving the sorted sentence ...")
+
 fig3 = plt.figure(figsize=(5,3))
 ax31 = fig3.add_subplot(111)
 ax31.plot(np.linspace(0,100,len(sorted_p_sent_mean)), sorted_p_sent_mean, color='b')
@@ -101,8 +115,10 @@ fig_path = "../../results" + data + "/sample_status_tok" + "/sentence-prob.png"
 fig3.savefig(fig_path, dpi=300)
 
 
+
 # Read training data
 print("\nReading in training data ...")
+
 def read_train(path):
     with open(path, 'r') as file:
         lines = file.readlines()
@@ -115,8 +131,10 @@ tgt_raw = read_train(tgt_raw_path)
 print(len(src_raw), len(tgt_raw))
 
 
+
 # Split and save inactive and active examples
 print("\nSpliting inactive examples and active examples ...")
+
 def write_train(data, selected, path):
     with open(path, 'w') as file:
         for i in tqdm(selected):
