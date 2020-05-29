@@ -57,7 +57,7 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
      fairseq/results/wmt14_en_de_base/sample_status/status_train_[BestStep].txt
      ```
   
-3. Compute the sentence-level probability and split inactive examples and active examples.
+3. Compute the sentence-level probability and split _inactive_ examples and _active_ examples.
    - Identify and split:
      ```
      python identify_split.py
@@ -71,8 +71,8 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
      ```
     
 ### Rejuvenation
-1. Train a rejuvenation NMT model and generate over the inactive samples.
-   - Train the NMT model as normal but on the active examples: 
+1. Train a rejuvenation NMT model and generate over the _inactive_ samples.
+   - Train the NMT model as normal but on the _active_ examples: 
      ```
      sh sh_train.sh
      ```
@@ -80,14 +80,25 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
      ```
      fairseq/checkpoints/wmt14_en_de_base_active/checkpoint_best.pt
      ```
-   - Generate over the inactive examples (w/o `--remove-bpe`):
+   - Generate over the _inactive_ examples (w/o `--remove-bpe`):
      ```
      sh sh_generate_extra.sh
      ```
-   - Check the rejuvenated examples:
+   - Check the _rejuvenated_ examples:
      ```
      fairseq/results/wmt14_en_de_base_active/inactive/source.txt
      fairseq/results/wmt14_en_de_base_active/inactive/target.txt
      fairseq/results/wmt14_en_de_base_active/inactive/decoding.txt
      ```
     
+### Final NMT Model
+1. Train a final NMT model from scratch.
+   - Train the NMT model on the combination of _active_ examples and _rejuvenated_ examples: 
+     ```
+     sh sh_train.sh
+     ```
+   - Check the best model:
+     ```
+     fairseq/checkpoints/wmt14_en_de_base_rejuvenated/checkpoint_best.pt
+     ```
+     
