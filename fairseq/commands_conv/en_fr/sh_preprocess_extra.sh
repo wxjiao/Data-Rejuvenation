@@ -1,12 +1,12 @@
-DATA=wmt14_en_fr_transfer_LightLight
+DATA=wmt14_en_fr_lightconv_active
 TEXT=dataset/$DATA
 # Preprocess
 cd ../../
 python preprocess.py \
   --source-lang en \
   --target-lang fr \
-  --validpref $TEXT/valid_probRepLev10 \
-  --destdir data-bin/$DATA/valid_probRepLev10 \
+  --validpref $TEXT/inactive \
+  --destdir data-bin/$DATA/inactive \
   --workers 32 \
   --srcdict data-bin/$DATA/dict.en.txt \
   --tgtdict data-bin/$DATA/dict.fr.txt \
