@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-DATA=wmt14_en_fr_lightconv_joined_fp16
+DATA=wmt14_en_fr_lightconv
 cd ../../
-DISK=/apdcephfs/share_916081/joelwxjiao
-CHECKPOINT_DIR=$DISK/checkpoints/$DATA
-EVAL_OUTPUT_PATH=$DISK/results/$DATA/evaluation/
+DISK=./checkpoints
+CHECKPOINT_DIR=$DISK/$DATA
+EVAL_OUTPUT_PATH=./results/$DATA/evaluation/
 CHECKPOINT=checkpoint_best.pt
 CHECKFILE=$CHECKPOINT_DIR/$CHECKPOINT
 
@@ -24,7 +24,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python force_decode.py data-bin/$DATA \
   --lr-shrink 1 --max-lr 0.001 \
   --t-mult 1 --lr-period-updates 20000 \
   --save-dir $CHECKPOINT_DIR \
-  --tensorboard-logdir $DISK/results/$DATA/logs \
+  --tensorboard-logdir ./results/$DATA/logs \
   --criterion label_smoothed_cross_entropy --label-smoothing 0.1 \
   --no-progress-bar --log-format simple --log-interval 100 \
   --save-interval-updates 2000 \
@@ -33,7 +33,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python force_decode.py data-bin/$DATA \
   --beam 1 \
   --remove-bpe \
   --float-valid \
-  --results-path $DISK/results/$DATA \
+  --results-path ./results/$DATA \
   --restore-file $CHECKFILE \
   --valid-subset 'train' \
   --skip-invalid-size-inputs-valid-test \
@@ -46,7 +46,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python force_decode.py data-bin/$DATA \
   --multi-bleu-path ./scripts/ \
   --share-all-embeddings \
  # |& tee ./results/$DATA/logs/train.log
- #--share-decoder-input-output-embed \ 
- # --save-interval 1 \
- # --keep-interval-updates 5 \
- # --keep-last-epochs 5 \
+
