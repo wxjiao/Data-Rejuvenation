@@ -1,4 +1,4 @@
-DATA=wmt14_en_de_manipulate_denoising/top40percent
+DATA=wmt14_en_de_base
 TEXT=dataset/$DATA
 # Preprocess
 cd ../../
@@ -10,6 +10,6 @@ python preprocess.py \
   --testpref $TEXT/test \
   --destdir data-bin/$DATA \
   --workers 32 \
-  --srcdict data-bin/$DATA/dict.en.txt \
-  --tgtdict data-bin/$DATA/dict.de.txt \
+#  --srcdict data-bin/$DATA/dict.en.txt \
+#  --tgtdict data-bin/$DATA/dict.de.txt \
 
