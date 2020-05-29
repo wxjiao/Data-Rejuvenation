@@ -196,7 +196,7 @@ def get_parser(desc, default_task='translation'):
                         help='how often to clear the PyTorch CUDA cache (0 to disable)')
     parser.add_argument('--all-gather-list-size', default=16384, type=int,
                         help='number of bytes reserved for gathering stats from workers')
-    # By wxjiao: float_valid
+    # By xxx: float_valid
     parser.add_argument('--float-valid', default=False, action='store_true',
                         help='if true, use float type for valid step (for DynamicConv)')
 
@@ -383,7 +383,9 @@ def add_optimization_args(parser):
 def add_checkpoint_args(parser):
     group = parser.add_argument_group('Checkpointing')
     # fmt: off
-    group.add_argument('--no-load-trainer-data', action='store_true', help="Do not load the trainer data")  # By wxjiao
+    # By xxx: --no-load-trainer-data
+    group.add_argument('--no-load-trainer-data', action='store_true', help="Do not load the trainer data")
+    #
     group.add_argument('--save-dir', metavar='DIR', default='checkpoints',
                        help='path to save checkpoints')
     group.add_argument('--restore-file', default='checkpoint_last.pt',
@@ -468,7 +470,7 @@ def add_generation_args(parser):
     group = parser.add_argument_group('Generation')
     add_common_eval_args(group)
     # fmt: off
-    # By wxjiao
+    # By xxx: --no-bleu-eval
     group.add_argument('--no-bleu-eval', action='store_true', help='if not specified, bleu evaluation is open')
     #
     group.add_argument('--beam', default=5, type=int, metavar='N',
