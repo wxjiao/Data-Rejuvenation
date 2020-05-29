@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 cd ../../
-DATASET=wmt14_en_fr_transfer_LightLight
+DATASET=wmt14_en_fr_lightconv
 DATA=data-bin/$DATASET
-CP_PATH=/apdcephfs/share_916081/joelwxjiao/checkpoints/$DATASET
+CP_PATH=./checkpoints/$DATASET
 CP=checkpoint_best.pt
 
 CHECKPOINT=$CP_PATH/$CP
@@ -12,7 +12,7 @@ mkdir $VALID_DECODE_PATH
 
 SUBSET=valid
 echo "Evaluate on $DATA with $CHECKPOINT"
-CUDA_VISIBLE_DEVICES=7 python generate.py \
+CUDA_VISIBLE_DEVICES=0 python generate.py \
   data-bin/$DATASET \
   -s en \
   -t fr \
@@ -28,5 +28,5 @@ CUDA_VISIBLE_DEVICES=7 python generate.py \
   --valid-decoding-path $VALID_DECODE_PATH \
   > ./results/$DATASET/$CP.gen
 
-sh ./scripts/compound_split_bleu.sh ./results/$DATASET/$CP.gen
+#sh ./scripts/compound_split_bleu.sh ./results/$DATASET/$CP.gen
 
