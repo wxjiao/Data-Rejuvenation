@@ -1,5 +1,5 @@
-# By wxjiao, 2020-May-22
-##
+# By xxx, 2020-May-22
+#
 import os
 import glob
 import numpy as np
