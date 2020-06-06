@@ -55,11 +55,11 @@ def main():
         import sacrebleu
 
         def score(fdsys):
-            with open(args.ref) as fdref:
+            with open(args.ref, encoding='utf-8') as fdref:
                 print(sacrebleu.corpus_bleu(fdsys, [fdref]))
     elif args.sentence_bleu:
         def score(fdsys):
-            with open(args.ref) as fdref:
+            with open(args.ref, encoding='utf-8') as fdref:
                 scorer = bleu.Scorer(dict.pad(), dict.eos(), dict.unk())
                 for i, (sys_tok, ref_tok) in enumerate(zip(readlines(fdsys), readlines(fdref))):
                     scorer.reset(one_init=True)
@@ -69,7 +69,7 @@ def main():
                     print(i, scorer.result_string(args.order))
     else:
         def score(fdsys):
-            with open(args.ref) as fdref:
+            with open(args.ref, encoding='utf-8') as fdref:
                 scorer = bleu.Scorer(dict.pad(), dict.eos(), dict.unk())
                 for sys_tok, ref_tok in zip(readlines(fdsys), readlines(fdref)):
                     sys_tok = dict.encode_line(sys_tok)
@@ -80,7 +80,7 @@ def main():
     if args.sys == '-':
         score(sys.stdin)
     else:
-        with open(args.sys, 'r') as f:
+        with open(args.sys, 'r', encoding='utf-8') as f:
             score(f)
 
 

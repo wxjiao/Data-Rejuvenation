@@ -311,7 +311,7 @@ def get_bleu_score(args, trainer, subset, src_target_hypo_strs):
 
     if args.valid_decoding_path is not None:
         os.makedirs(args.valid_decoding_path, exist_ok=True)
-        with open(valid_sys_path, 'w') as f:
+        with open(valid_sys_path, 'w', encoding='utf-8') as f:
           for sent in src_target_hypo_strs_filter:
             if len(sent) == 0:
               continue

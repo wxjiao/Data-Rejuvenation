@@ -205,21 +205,21 @@ def main(args):
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
 
     if args.decoding_path is not None:
-        with open(os.path.join(args.decoding_path, 'source.txt'), 'w') as f:
+        with open(os.path.join(args.decoding_path, 'source.txt'), 'w', encoding='utf-8') as f:
             for sents in src_sents:
                 if len(sents)==0:
                     continue
                 for sent in sents:
                     f.write(sent+'\n')
 
-        with open(os.path.join(args.decoding_path, 'target.txt'), 'w') as f:
+        with open(os.path.join(args.decoding_path, 'target.txt'), 'w', encoding='utf-8') as f:
             for sents in tgt_sents:
                 if len(sents)==0:
                     continue
                 for sent in sents:
                     f.write(sent+'\n')
 
-        with open(os.path.join(args.decoding_path, 'decoding.txt'), 'w') as f:
+        with open(os.path.join(args.decoding_path, 'decoding.txt'), 'w', encoding='utf-8') as f:
             for sents in hyp_sents:
                 if len(sents)==0:
                     continue
