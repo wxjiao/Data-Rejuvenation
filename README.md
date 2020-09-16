@@ -8,7 +8,7 @@ Then, we train a **_rejuvenation model_** on the active examples, which is used 
 
 <div align="center">
     <img src="/image/DataReju.png" width="60%" title="Framework of Data Rejuvenation."</img>
-    <p class="image-caption">{Framework of Data Rejuvenation.}</p>
+    <p class="image-caption">Framework of Data Rejuvenation.</p>
 </div>
 
 
