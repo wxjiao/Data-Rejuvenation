@@ -8,7 +8,7 @@ Then, we train a *rejuvenation model* on the active examples, which is used to r
 
 <div align="center">
     <img src="/image/DataReju.png" width="60%"</img>
-    Framework of Data Rejuvenation.
+    <figcaption>Framework of Data Rejuvenation.</figcaption>
 </div>
 
 
