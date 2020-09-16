@@ -7,8 +7,13 @@ First, we train an **_identification model_** on the original training data, and
 Then, we train a **_rejuvenation model_** on the active examples, which is used to re-label the inactive examples with forward-translation. Finally, the rejuvenated examples and the active examples are combined to train the final NMT model. Experimental results on WMT14 English-German and English-French datasets show that the proposed **data rejuvenation** consistently and significantly improves performance for several strong NMT models. Extensive analyses reveal that our approach stabilizes and accelerates the training process of NMT models, resulting in final models with better generalization capability.
 
 <div align="center">
-    <img src="/image/DataReju.png" width="60%" title="Framework of Data Rejuvenation."</img>
-    <p class="image-caption">Framework of Data Rejuvenation.</p>
+    <img src="/image/DataReju.png" width="80%" title="Framework of Data Rejuvenation."</img>
+    <p class="image-caption">The framework of Data Rejuvenation.</p>
+</div>
+
+<div align="center">
+    <img src="/image/Results.png" width="80%" title="Main results."</img>
+    <p class="image-caption">Evaluation of translation performance across model architectures and language pairs.</p>
 </div>
 
 
