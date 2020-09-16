@@ -6,7 +6,7 @@ Large-scale training datasets lie at the core of the recent success of neural ma
 First, we train an *identification model* on the original training data, and use it to distinguish inactive examples and active examples by their sentence-level output probabilities.
 Then, we train a *rejuvenation model* on the active examples, which is used to re-label the inactive examples with forward-translation. Finally, the rejuvenated examples and the active examples are combined to train the final NMT model. Experimental results on WMT14 English-German and English-French datasets show that the proposed *data rejuvenation* consistently and significantly improves performance for several strong NMT models. Extensive analyses reveal that our approach stabilizes and accelerates the training process of NMT models, resulting in final models with better generalization capability.
 
-![The framework of Data Rejuvenation](/image/DataReju.png?raw=true "The framework of Data Rejuvenation.")
+![The framework of Data Rejuvenation](/image/DataReju.png?raw=true "The framework of Data Rejuvenation.") <!-- .element width="60%" -->
 
 ## Code Base
 This implementation is based on [fairseq(v0.9.0)](https://github.com/pytorch/fairseq/tree/v0.9.0/fairseq), with customized modification of scripts.
