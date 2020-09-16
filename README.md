@@ -14,7 +14,7 @@ Additional Functionalities:
 - Force decoding: `force_decode.py`;
 - Identification: `identify_split.py`;
 
-## Pipline
+## Pipeline
 Take the Transformer-Base model and WMT14 En-De dataset as an example.
 
 ### Identification
