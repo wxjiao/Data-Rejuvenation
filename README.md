@@ -1,5 +1,5 @@
 # Data-Rejuvenation
-Implementation of Data Rejuvenation pipeline.
+Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation" (to appear in EMNLP2020).
 
 ## Code Base
 This implementation is based on [fairseq(v0.9.0)](https://github.com/pytorch/fairseq/tree/v0.9.0/fairseq), with customized modification of scripts.
