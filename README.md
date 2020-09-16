@@ -8,12 +8,7 @@ Then, we train a **_rejuvenation model_** on the active examples, which is used 
 
 <div align="center">
     <img src="/image/DataReju.png" width="80%" title="Framework of Data Rejuvenation."</img>
-    <p class="image-caption">The framework of Data Rejuvenation.</p>
-</div>
-
-<div align="center">
-    <img src="/image/Results.png" width="80%" title="Main results."</img>
-    <p class="image-caption">Evaluation of translation performance across model architectures and language pairs.</p>
+    <p class="image-caption">Figure 1: The framework of Data Rejuvenation.</p>
 </div>
 
 
@@ -119,4 +114,16 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
      ```
      fairseq/checkpoints/wmt14_en_de_base_rejuvenated/checkpoint_best.pt
      ```
+   - Evaluate on the test set:
+     ```
+     sh sh_generate.sh
+     ```
      
+## Reference Performance
+We evaluate the proposed **Data Rejuvenation** approach over various SOTA architectures and two language pairs.
+Clearly, our data rejuvenation consistently and significantly improves translation performance in all cases, demonstrating the effectiveness and universality of the proposed data rejuvenation approach. It’s worth noting that our approach achieves significant improvements without introducing any additional data and model modification.
+
+<div align="center">
+    <img src="/image/Results.png" width="80%" title="Main results."</img>
+    <p class="image-caption">Table 1: Evaluation of translation performance across model architectures and language pairs.</p>
+</div>
