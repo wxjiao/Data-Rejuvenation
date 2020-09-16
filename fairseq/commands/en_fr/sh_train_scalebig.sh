@@ -29,7 +29,6 @@ sed -i -e 's/@@ //g' $EVAL_OUTPUT_PATH/test.fr
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py data-bin/$DATA \
   --fp16 \
-  --seed 12 \
   -s en -t fr \
   --lr 1e-07 --min-lr 1e-09 \
   --weight-decay 0.0 --clip-norm 0.0 \
