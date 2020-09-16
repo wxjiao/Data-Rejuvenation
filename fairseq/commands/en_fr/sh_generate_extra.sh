@@ -28,5 +28,3 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
   --valid-decoding-path $VALID_DECODE_PATH \
   > $VALID_DECODE_PATH/$CP.gen
 
-#sh ./scripts/compound_split_bleu.sh $VALID_DECODE_PATH/$CP.gen
-
