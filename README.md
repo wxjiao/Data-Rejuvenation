@@ -1,4 +1,5 @@
-# Data-Rejuvenation
+# Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation
+
 Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation" to appear in EMNLP 2020.
 
 ## Brief Introduction
