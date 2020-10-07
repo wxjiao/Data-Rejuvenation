@@ -128,3 +128,17 @@ Clearly, our data rejuvenation consistently and significantly improves translati
     <img src="/image/Results.png" width="80%" title="Main results."</img>
     <p class="image-caption">Table 1: Evaluation of translation performance across model architectures and language pairs.</p>
 </div>
+
+
+## Public Impact
+### Citation
+Please kindly cite our paper if you find it helpful:
+
+```ruby
+@inproceedings{jiao2020data,
+  title     = {Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation}, 
+  author    = {Wenxiang Jiao and Xing Wang and Shilin He and Irwin King and Michael R. Lyu and Zhaopeng Tu},
+  booktitle = {EMNLP},
+  year      = {2020}
+}
+```
