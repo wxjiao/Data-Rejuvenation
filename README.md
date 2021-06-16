@@ -135,10 +135,10 @@ Clearly, our data rejuvenation consistently and significantly improves translati
 Please kindly cite our paper if you find it helpful:
 
 ```ruby
-@inproceedings{jiao2020data,
-  title     = {Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation}, 
-  author    = {Wenxiang Jiao and Xing Wang and Shilin He and Irwin King and Michael R. Lyu and Zhaopeng Tu},
-  booktitle = {EMNLP},
-  year      = {2020}
+@inproceedings{jiao2021self,
+  title={Self-Training Sampling with Monolingual Data Uncertainty for Neural Machine Translation},
+  author={Wenxiang Jiao and Xing Wang and Zhaopeng Tu and Shuming Shi and Michael R. Lyu and Irwin King},
+  booktitle = {ACL},
+  year      = {2021}
 }
 ```
