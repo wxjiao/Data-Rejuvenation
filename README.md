@@ -117,7 +117,7 @@ Take the Transformer-Base model and WMT14 En-De dataset as an example.
      fairseq/results/wmt14_en_de_base_active/inactive/decoding.txt
      ```
     
-\**Note**: A strong identification NMT models can take over the job of the rejuvenation NMT model, thus reducing the effort for training a new model. For example, the large-batch configured Transformer-Big and Dynamic-Conv models.
+🌟NOTE:star2:: A strong identification NMT models can take over the job of the rejuvenation NMT model, thus reducing the effort for training a new model. For example, the large-batch configured Transformer-Big and Dynamic-Conv models.
     
 ### Final NMT Model
 1. Train a final NMT model from scratch.
