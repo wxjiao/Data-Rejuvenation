@@ -2,7 +2,7 @@
 
 Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation" to appear in EMNLP 2020. [[paper]](https://www.aclweb.org/anthology/2020.emnlp-main.176/)
 
-NEW! Test **_Data Rejuvenation_** on **WMT19/20** datasets. You will be surprised!
+<span style="color:blue">NEW! Test **_Data Rejuvenation_** on **WMT19/20** datasets. You will be surprised!</span>.
 
 
 ## Brief Introduction
