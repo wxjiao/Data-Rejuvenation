@@ -2,7 +2,12 @@
 
 Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation" to appear in EMNLP 2020. [[paper]](https://www.aclweb.org/anthology/2020.emnlp-main.176/)
 
-:fire:NEW!:fire: Test **_Data Rejuvenation_** on **WMT19/20** datasets. You will be surprised!
+:fire:NEW!:fire: Test **_Data Rejuvenation_** on **WMT'19/20** datasets. You will be surprised!
+
+| :------: | :------: | :-------: |
+| **Model** | newstest'19 | newstest'20 |
+| Transformer-Big | 41.1 | 33.7 |
+| + Data Rejvenation | **43.0** | **35.5** |
 
 
 ## Brief Introduction
