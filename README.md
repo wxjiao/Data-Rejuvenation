@@ -2,6 +2,9 @@
 
 Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Examples for Neural Machine Translation" to appear in EMNLP 2020. [[paper]](https://www.aclweb.org/anthology/2020.emnlp-main.176/)
 
+NEW! Test **_Data Rejuvenation_** on **WMT19/20** datasets. You will be surprised!
+
+
 ## Brief Introduction
 Large-scale training datasets lie at the core of the recent success of neural machine translation (NMT) models. However, the complex patterns and potential noises in the large-scale data make training NMT models difficult. In this work, we explore to identify the inactive training examples which contribute less to the model performance, and show that the existence of inactive examples depends on the data distribution. We further introduce **data rejuvenation** to improve the training of NMT models on large-scale datasets by exploiting inactive examples. The proposed framework consists of three phases. 
 First, we train an **_identification model_** on the original training data, and use it to distinguish inactive examples and active examples by their sentence-level output probabilities.
