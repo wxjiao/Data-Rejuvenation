@@ -9,7 +9,7 @@ Implementation of our paper "Data Rejuvenation: Exploiting Inactive Training Exa
 | Model | newstest'19 | newstest'20 |
 | :------ | :------: | :-------: |
 | Transformer-Big | 41.1 | 33.7 |
-| + Data Rejvenation | **43.0** | **35.5** |
+| + Data Rejuvenation | **43.0** | **35.5** |
     
 <p class="image-caption">Results: Train on WMT'19 En-De training set, validate on newstest'18, test on newstest'19/20.</p>
     
